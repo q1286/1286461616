@@ -1,0 +1,17 @@
+<php
+    date_default_timezone_set('Asia/Shanghai');
+    
+    $time = time();
+    $uri = substr($_SERVER['REQUEST_URI'],1);
+    $pos=strstr($uri,'?');
+    if($pos!=FALSE){
+		$uri=substr($uri,pos+1);
+    }
+    if(strlen($uri)>0){
+		$result=date($uri,$time);
+    }else{
+		$result=$time;
+    }
+	echo $result;
+	header('Content-Length: ' . strlen((string)$result));
+>
